@@ -3,7 +3,6 @@
 
 ![The FlowCog](image/FlowCog.png) 
 
-#### We appreciate any useful suggestions for improvement of this paper of vehicle tracking and counting. Please raise issues or send an email to **LXie5201@outlook.com**. Thanks for your cooperation!
 
 **Data-Driven Scene Perception and Understanding for Dynamic Traffic in Congested Urban Networks **
 
