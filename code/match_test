@@ -1,0 +1,110 @@
+import numpy as np
+import pandas as pd
+similarity = [[63, 6, 0.685236], [5, 6, 0.356965], [51, 6, 0.651254], [52, 60, 0.362541], [63, 67, 0.758261], [5, 67, 0.256342], [51, 67, 0.152473]]
+# get the same lost_id match
+
+def takeSecond(elem):
+    return elem[2]
+
+
+def test_matches():
+    my_list = []
+    maximum_match = []
+    while i<len(similarity):
+    #for i in range(len(similarity)):
+        similarity.sort(key=takeSecond)
+        print("reid: similarity sort: \n", similarity)
+        maximum_match.append([similarity[0][0], similarity[0][1]])
+        print("reid: start maximum_match: ", maximum_match)
+        print("reid: similarity sort: similarity[0][0]: ", similarity[0][0])
+
+        for similarity[0][0] in similarity[:]:
+            index_lost_id = similarity.index(similarity[0][0])
+            print("reid: index_lost_id: ", index_lost_id)
+            del similarity[index_lost_id]
+            print("reid: after delete similarity: ", similarity)
+
+    print("reid: end maximum_match: ", maximum_match)
+
+def test_matches1():
+    my_list = []
+    maximum_match = []
+    #while i<len(similarity):
+    #for i in range(len(similarity)):
+    similarity.sort(key=takeSecond, reverse=True)
+    similarity1 = similarity
+    print("reid: similarity sort: \n", similarity)
+    maximum_match.append([similarity[0][0], similarity[0][1]])
+    print("reid: start maximum_match: ", maximum_match)
+    positions = [similarity[0][0], similarity[0][1]]
+    ins = np.isin(similarity, positions)
+    array = np.where(ins)
+    print("array=", array)
+    j=0
+    for j in array[0]:
+        print("j=",j)
+        print("reid: before delete similarity: ", similarity)
+        similarity1.pop(j)
+        print("reid: after delete similarity: ", similarity)
+
+    print("reid: end maximum_match: ", maximum_match)
+
+
+def test_matches2():
+    my_list = []
+    maximum_match = []
+    #while i<len(similarity):
+
+    # ret = []
+    # similarity.sort(key=takeSecond, reverse=True)
+    # print("reid: similarity sort: \n", similarity)
+    # while len(similarity) > 0:
+    #     ret.append(similarity[0])
+    #     id1 = similarity[0][0]
+    #     id2 = similarity[0][1]
+    #     to_remove = [similarity[0]]
+    #
+    #     for i in range(1, len(similarity)):
+    #         if similarity[i][0] == id1 or similarity[i][1] == id2:
+    #             to_remove.append(similarity[i])
+    #             print("to_remove=", to_remove)
+    #     for item in to_remove:
+    #         similarity.remove(item)
+    #         print("similarity=", similarity)
+    # print("ret=",ret)
+
+    similarity.sort(key=takeSecond, reverse=True)
+    print("reid: similarity sort: \n", similarity)
+    while len(similarity)>0:
+        maximum_match.append(similarity[0])
+        to_remove = []
+        id_lost = similarity[0][0]
+        id_track = similarity[0][1]
+        for j in range(0,len(similarity)):
+            if id_lost==similarity[j][0] or id_track==similarity[j][1]:
+                to_remove.append(similarity[j])
+                print("to_remove: ", to_remove)
+
+        for k in to_remove:
+            similarity.remove(k)
+            print("after similarity:",similarity)
+    print("reid: end maximum_match: ", maximum_match)
+
+
+
+
+def test1():
+    card_list = [['wong', '1', '1'], ['ben', '1', '1'], ['zhuzhu', '1', '1'], ['nannan', '1', '1']]
+
+    i = 0
+    while i < len(card_list):
+        print("i:", i)
+        for card in card_list:
+            print("card:", card)
+            index = card_list.index(card)
+            del card_list[index]
+            print("card_list:",card_list)
+
+if __name__ == '__main__':
+    test_matches2()
+    print("*****************end ")

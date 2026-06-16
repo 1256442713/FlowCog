@@ -1,0 +1,17 @@
+redis==3.4.1
+numpy>=1.17.0
+scikit-learn>=0.21.3
+joblib>=0.14.0
+opencv-python
+torch==1.4.0
+torchvision==0.4.1
+Cython
+numba
+progress
+matplotlib
+easydict
+pyquaternion
+nuscenes-devkit
+pyyaml
+motmetrics
+pycocotools

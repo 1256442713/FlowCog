@@ -1,0 +1,1 @@
+./build/bin/main --algorithm generate --data /mnt/dataset/track-videos/video_32/logs/traj.txt --saved_model models/s13-center --directory results/s13-center --image /mnt/dataset/track-videos/video_32/output.jpg
